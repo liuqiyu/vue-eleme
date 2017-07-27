@@ -75,13 +75,32 @@ cnpm install sass-loader --save-dev
 ```
   # 页面解析
   
-  ### 公用头部
+  ### 公用头部   -- 此组件在/src/components/header中，案例大部分页面能应用
   
   ### 热门城市
     
   ### 按字母排序城市列表
   
   本页，引入axios插件，在static中插件静态的data/json文件，使用axios进行请求数据，并渲染在页面中。详情请看/src/page/home/home.vue
+  
+  ### 获取本机ip地址
+  
+  需要jsonp跨域
+  
+  cnpm install jsonp --save // https://github.com/mzabriskie/axios/blob/master/COOKBOOK.md#jsonp
+  
+  var jsonp = require('jsonp');
+  
+  jsonp('http://www.example.com/foo', null, function (err, data) {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log(data);
+    }
+  });
+  
+  
+  
 
 ```
 

@@ -5,13 +5,13 @@
       <span slot='logo' class="head_logo" @click="reload()">ele.me</span>
     </v-header-top>
 
-    <!-- 城市-->
+    <!-- 选择城市-->
     <nav class="city_nav">
       <div class="city_tip">
         <span>当前定位城市：</span>
         <span>定位不准时，请在城市列表选择</span>
       </div>
-      <router-link :to="'/city' + guessCityid" class="guess_city">
+      <router-link :to="'/city/' + guessCityid" class="guess_city">
         <span>{{ guessCity }}</span>
         <svg class="arrow_right">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
@@ -24,7 +24,7 @@
       <h4 class="city_title">热门城市</h4>
       <ul class="citylistul clear">
         <router-link tag="li" v-for="(item,index) in hotcity" :to="'/city/' + item.id" :key="item.id">
-          {{item}}
+          {{item.name}}
         </router-link>
       </ul>
     </section>
@@ -49,12 +49,13 @@
 
 <script>
   import headerTop from '../../components/header/header.vue'
+  var jsonp = require('jsonp');
 
   export default {
     data(){
       return {
         guessCityid: '',
-        guessCity: "深圳",
+        guessCity: "",
         hotcity: [],
         sortgroupcity: []
       }
@@ -70,9 +71,13 @@
     mounted(){
       var vm = this;
       this.$nextTick(function () {
+        // 获取锁在城市
+
         // 获取热门城市
         this.$http.get('./static/data/hotcity.json').then(function (response) {
           vm.hotcity = response.data;
+          vm.guessCityid = response.data[0].id;
+          vm.guessCity = response.data[0].name;
         }).catch(function (error) {
           console.log(error);
         });

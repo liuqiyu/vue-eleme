@@ -6,6 +6,7 @@ import router from './router'
 
 import axios from 'axios'
 Vue.prototype.$http = axios
+import jsonp from 'jsonp'
 
 Vue.config.productionTip = false
 
