@@ -170,27 +170,12 @@
     font-weight: 400;
     text-indent: 0.45rem;
     position: relative;
+
     &:before {
-      height: 2px;
-      content: '';
-      width: 100%;
-      border-top: 1px solid #666;
-      position: absolute;
-      top: -1px;
-      right: 0;
-      transform: scaleY(0.5);
-      -webkit-transform: scaleY(0.5);
+      @include borTop(2px, $bc);
     }
     &:after {
-      height: 1px;
-      content: '';
-      width: 100%;
-      border-top: 1px solid #999;
-      position: absolute;
-      bottom: -1px;
-      right: 0;
-      transform: scaleY(0.5);
-      -webkit-transform: scaleY(0.5);
+      @include borBot(1px, $bc);
     }
     @include font(0.35rem, 0.9rem, "Helvetica Neue");
     span {
@@ -201,7 +186,10 @@
   .letter_classify_li {
     margin-bottom: 0.4rem;
     background-color: #fff;
-    border-bottom: 1px solid $bc;
+    position: relative;
+    &:after {
+      @include borBot(1px, $bc);
+    }
     .groupcity_name_container {
       li {
         color: #666;
