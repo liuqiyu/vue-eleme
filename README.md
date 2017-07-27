@@ -38,7 +38,10 @@ cnpm run dev
 ## 编译打包
 
 cnpm run build
+打包后再上传文件到github中，使用github-page预览项目需要在/config/index.js修改配置-build-assetsPublicPath：'./
 ```
+[预览地址](https://liuqiyu.github.io/vue-eleme/dist/#/')
+
 
 ##### 使用sass css预处理器  地址：https://vue-loader.vuejs.org/zh-cn/configurations/pre-processors.html
 ```
@@ -99,8 +102,6 @@ cnpm install sass-loader --save-dev
     }
   });
   
-  
-  
-
+ 
 ```
 
