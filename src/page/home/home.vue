@@ -130,26 +130,10 @@
       position: relative;
       @include font(0.43rem, 1rem);
       &:before {
-        height: 1px;
-        content: '';
-        width: 100%;
-        border-top: 1px solid $bc;
-        position: absolute;
-        top: -1px;
-        right: 0;
-        transform: scaleY(0.5);
-        -webkit-transform: scaleY(0.5);
+        @include borTop(1px, $bc);
       }
       &:after {
-        height: 2px;
-        content: '';
-        width: 100%;
-        border-top: 1px solid #666;
-        position: absolute;
-        bottom: -1px;
-        right: 0;
-        transform: scaleY(0.5);
-        -webkit-transform: scaleY(0.5);
+        @include borBot(2px, $bc);
       }
       span:nth-of-type(1) {
         color: $blue;
