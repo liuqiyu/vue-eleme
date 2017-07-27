@@ -54,10 +54,10 @@
   export default {
     data(){
       return {
-        guessCityid: '',
-        guessCity: "",
-        hotcity: [],
-        sortgroupcity: []
+        guessCityid: '', // 当前城市id
+        guessCity: "", // 当前城市名
+        hotcity: [], // 热门城市
+        sortgroupcity: [] // 按字母排序的全部城市
       }
     },
     components: {

@@ -19,7 +19,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/city',
+      path: '/city/:cityid',
       name: 'city',
       component: City
     }
