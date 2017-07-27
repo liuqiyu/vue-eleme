@@ -133,7 +133,7 @@
         height: 1px;
         content: '';
         width: 100%;
-        border-top: 1px solid #999;
+        border-top: 1px solid $bc;
         position: absolute;
         top: -1px;
         right: 0;
