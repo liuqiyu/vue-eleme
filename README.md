@@ -73,6 +73,15 @@ cnpm install sass-loader --save-dev
 
 ##### /home -- 首页
 ```
+  # 页面解析
+  
+  ### 公用头部
+  
+  ### 热门城市
+    
+  ### 按字母排序城市列表
+  
+  本页，引入axios插件，在static中插件静态的data/json文件，使用axios进行请求数据，并渲染在页面中。详情请看/src/page/home/home.vue
 
 ```
 
