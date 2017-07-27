@@ -40,4 +40,39 @@ cnpm run dev
 cnpm run build
 ```
 
+##### 使用sass css预处理器  地址：https://vue-loader.vuejs.org/zh-cn/configurations/pre-processors.html
+```
+cnpm install node-sass --save-dev  (注：sass-loader依赖于node-sass)
+
+cnpm install sass-loader --save-dev
+
+<style lang="sass">
+  /* write sass here */
+</style>
+
+```
+
+##### 使用axios  -- axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端
+```
+### 安装 
+  cnpm install axios --save
+
+### 使用
+  main.js
+  import axios from 'axios'
+  Vue.prototype.$http = axios
+  
+### example:
+  
+  this.$http.get('./static/data/allcity.json').then(function (response) {
+    vm.sortgroupcity = response.data;
+  }).catch(function (error) {
+    console.log(error);
+  });
+```
+
+##### /home -- 首页
+```
+
+```
 
