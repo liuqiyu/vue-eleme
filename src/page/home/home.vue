@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- 头部 -->
-    <v-header-top>
-      <span slot='logo' class="head_logo" @click="reload()">ele.me</span>
+    <v-header-top >
+      <span slot='logo' class="head_logo" @click="reload()">Iceman平台</span>
     </v-header-top>
 
     <!-- 选择城市-->
@@ -11,8 +11,8 @@
         <span>当前定位城市：</span>
         <span>定位不准时，请在城市列表选择</span>
       </div>
-      <router-link :to="'/city/' + guessCityid" class="guess_city">
-        <span>{{ guessCity }}</span>
+      <router-link :to="'/city/' + localCityId" class="guess_city">
+        <span>{{ localCity }}</span>
         <svg class="arrow_right">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
         </svg>
@@ -49,16 +49,27 @@
 
 <script>
   import headerTop from '../../components/header/header.vue'
-  var jsonp = require('jsonp');
+  import {mapState, mapGetters} from 'vuex'
 
   export default {
     data(){
       return {
         guessCityid: '', // 当前城市id
-        guessCity: "", // 当前城市名
         hotcity: [], // 热门城市
         sortgroupcity: [] // 按字母排序的全部城市
       }
+    },
+    /* computed: mapState({
+     guessCity: state => state.localCity
+     }),*/
+    computed: {
+      localCity: function (state) {
+        return this.$store.state.localCity
+      },
+      localCityId: function (state) {
+        return this.$store.state.localCityId
+      }
+
     },
     components: {
       'v-header-top': headerTop
@@ -76,8 +87,6 @@
         // 获取热门城市
         this.$http.get('./static/data/hotcity.json').then(function (response) {
           vm.hotcity = response.data;
-          vm.guessCityid = response.data[0].id;
-          vm.guessCity = response.data[0].name;
         }).catch(function (error) {
           console.log(error);
         });
@@ -99,8 +108,8 @@
   .head_logo {
     left: 0.4rem;
     font-weight: 400;
-    @include sc(0.55rem, #fff);
-    @include wh(2.3rem, 0.7rem);
+    @include sc(0.54rem, #fff);
+    @include wh(4rem, 0.7rem);
     @include ct;
   }
 
